@@ -1,6 +1,7 @@
 <?php $title = "Le blog de l'AVBN"; ?>
 
 <?php ob_start(); ?>
+
 <h1>Le super blog de l'AVBN !</h1>
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
@@ -34,11 +35,11 @@
 <?php
 foreach ($comments as $comment) {
 ?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['french_creation_date'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <p><strong><?= htmlspecialchars($comment->author) ?></strong> le <?= $comment->frenchCreationDate ?></p>
+    <p><?= nl2br(htmlspecialchars($comment->comment)) ?></p>
 <?php
 }
 ?>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('layout.php') ?>
+<?php require('templates/layout.php') ?>
